@@ -394,7 +394,7 @@
         End If
     End Sub
 
-    Private Sub Row1_Spindles_Click(sender As Object, e As EventArgs) Handles LblSpindleOpti.Click
+    Private Sub LblSpindleOpti_Click(sender As Object, e As EventArgs) Handles LblSpindleOpti.Click
 
         Dim FoundValue = DirectCast(sender.text, String)
 
@@ -402,7 +402,7 @@
 
     End Sub
 
-    Private Sub Row1_Gaps_Click(sender As Object, e As EventArgs) Handles LblGapOpti.Click
+    Private Sub LblGapOpti_Click(sender As Object, e As EventArgs) Handles LblGapOpti.Click
 
         Dim FoundText = DirectCast(sender.text, String)
 
@@ -410,7 +410,21 @@
 
         My.Computer.Clipboard.SetText(FoundValue)
 
-        MsgBox("Use " & FoundText & " gap")
+        MsgBox("Use " & FoundText & " as STANDARD gap",, "Standard Gaps")
+
+    End Sub
+
+
+    Private Sub LblGapFirst_Click(sender As Object, e As EventArgs) Handles LblGapFirst.Click
+
+        Dim FoundText = DirectCast(sender.text, String)
+
+        Dim FoundValue = Mid(FoundText, 1, (FoundText.Length - 2))
+
+        My.Computer.Clipboard.SetText(FoundValue)
+
+        MsgBox("Use " & FoundText & " as FIRST and LAST gap",, "First and Last Gaps")
+
 
     End Sub
 
@@ -468,6 +482,5 @@
         End If
 
     End Sub
-
 
 End Class
